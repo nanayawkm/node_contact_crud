@@ -1,0 +1,36 @@
+<%- include('layout/header')  %>
+
+<div class="container">
+    <div class="row my-4">
+        <form action="/update/<%= user._id  %>" method="post" id="add-form" enctype="multipart/form-data"  class="card bg-light mb-3" style="width: 80rem;">
+            <fieldset class="col-lg-6 mx-auto mt-4">
+                <span class="badge bg-success "><h3>Edit User (<%= user.name  %>)</h3></span>
+              <div class="form-group">
+                <label for="name" class="form-label mt-4">Name</label>
+                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="textHelp" placeholder="Enter name" value="<%= user.name  %>">
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label mt-4">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="<%= user.email  %>">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="phone" class="form-label mt-4">Phone</label>
+                <input type="text" name="phone" class="form-control" id="exampleInputPassword1" placeholder="Enter Phone" value="<%= user.phone  %>" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="image" class="form-label mt-4">Select Image</label>
+                <input class="form-control" type="file" name="image" id="formFile">
+                <img src="/<%= user.image  %>" width="100" class="img-thumbnail mt-1">
+              </div>
+              <input type="hidden" name="old_image" value="<%= user.image %>">
+             
+              <div class="mb-3 d-grid">
+                <input type="submit" name="submit" value="Update User" class="btn btn-success btn-lg"/>
+              </div>
+            </fieldset>
+          </form>
+    </div>
+</div>
+
+<%- include('layout/footer')  %> 
